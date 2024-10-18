@@ -57,7 +57,7 @@ pipeline {
                     echo 'deploying application.......'
                     def docker = "docker run -p 8080:8080 -d nanaot/java-app:$IMAGE_NAME"
                     sshagent(['key-pair']) {
-                        sh "ssh -o StrickHostKeyChecking-no ec2-user@18.194.242.250 ${docker}"
+                        sh "ssh -o StrickHostKeyChecking=no ec2-user@18.194.242.250 ${docker}"
   
                     }
                     
