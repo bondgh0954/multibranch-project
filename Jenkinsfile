@@ -17,7 +17,7 @@ pipeline {
                        versions:commit'
                     def matcher = readFile('pom.xml') =~ '<version>(.+)</version>'
                     def version = matcher[0][1]
-                    env.IMAGE_NAME = "$version-$<version>1.1.0-SNAPSHOT</version>BUILD_NUMBER"
+                    env.IMAGE_NAME = "$version-$BUILD_NUMBER"
                 }
             }
         }
