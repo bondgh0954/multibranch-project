@@ -55,7 +55,7 @@ pipeline {
             steps{
                 script{
                     echo 'deploying application.......'
-                    sh ''
+                    
                 }
             }
         }
