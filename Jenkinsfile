@@ -51,5 +51,32 @@ pipeline {
                 }
             }
         }
+        stage('deploy Application'){
+            steps{
+                script{
+                    echo 'deploying application.......'
+                    sh ''
+                }
+            }
+        }
+        stage('commit versionchanges'){
+            steps{
+                script{
+                    echo 'updating version increment to git repo......'
+                    withCredentials([usernamePassword(credentialsId: 'github-credentials', usernameVariable: 'USER', passwordVariable: 'PASS')]){
+                        sh "git remote set-url origin https://${PASS}:${PASS}@github.com/bondgh0954/multibranch-project.git"
+
+                        sh 'git config --global user.name "Jenkins"'
+                        sh ' git config --global user.email "jenkins@example.com"'
+
+                        sh 'git add .'
+                        sh 'git commit -m "commit changes"'
+                        sh 'git push origin HEAD:main'
+
+
+                    }
+                }
+            }
+        }
     }
 }
