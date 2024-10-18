@@ -35,7 +35,7 @@ pipeline {
             steps{
                 script{
                     echo 'building application docker image .......'
-                    sh "docker build -it nanaot/java-app:$IMAGE_NAME ."
+                    sh "docker build -t nanaot/java-app:$IMAGE_NAME ."
                 }
             }
         }
